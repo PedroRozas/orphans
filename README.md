@@ -37,13 +37,13 @@ It is a safety net for the common case: a background command in a `Bash` call. A
 At the prompt of a Claude Code terminal session:
 
 ```
-/plugin install orphans --marketplace PedroRozas/orphans
+/plugin install orphans --marketplace PedroRozas/claude-plugins
 ```
 
 From a shell:
 
 ```
-claude plugin install orphans --marketplace PedroRozas/orphans
+claude plugin install orphans --marketplace PedroRozas/claude-plugins
 ```
 
 ## Command
