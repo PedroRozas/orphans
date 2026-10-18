@@ -1,0 +1,12 @@
+{
+  "name": "orphans",
+  "description": "orphans: the processes Claude left running, under control",
+  "owner": { "name": "Pedro Rozas" },
+  "plugins": [
+    {
+      "name": "orphans",
+      "source": "./",
+      "description": "Finds the processes Claude left running, asks the session whether it still needs them, and ends them when the session ends"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "orphans",
+  "version": "0.2.0",
+  "description": "Finds the processes Claude left running, asks the session whether it still needs them, and ends them when the session ends",
+  "author": { "name": "Pedro Rozas" },
+  "license": "MIT",
+  "repository": "https://github.com/PedroRozas/orphans",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "Language of the status line, the command and the question the model reads (en uses /orphans, es uses /huerfanos)",
+      "options": ["en", "es"],
+      "default": "en"
+    },
+    "askSession": {
+      "type": "boolean",
+      "title": "Ask the session",
+      "description": "After a command leaves a process running, ask the model once whether it still needs it",
+      "default": true
+    },
+    "killAtSessionEnd": {
+      "type": "boolean",
+      "title": "End processes when the session ends",
+      "description": "Send SIGTERM to every process this session left running when it closes",
+      "default": true
+    },
+    "scanIntervalSeconds": {
+      "type": "number",
+      "title": "Scan interval (seconds)",
+      "description": "How often to look for forgotten processes while some are known (10-600)",
+      "default": 30
+    }
+  }
+}
