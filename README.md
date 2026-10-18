@@ -29,7 +29,7 @@ It is a safety net for the common case: a background command in a `Bash` call. A
    ```
 
    If a process turns up forgotten later (a background shell that ended), the same note goes into the conversation as a hidden row and the model reads it on its next turn. Each process is asked about once.
-3. **The status line.** `⚠ 2 forgotten processes · /orphans` while something owned by this session runs outside a live shell. `/orphans` lists them; `/orphans kill` ends them.
+3. **The status line.** `2 background processes · /orphans` while something owned by this session runs outside a live shell. It is a count, not a warning: the session may still be using them. They only become orphans when the session ends. `/orphans` lists them; `/orphans kill` ends them.
 4. **Leftovers.** When a session ends, every process it still owns gets `SIGTERM` (optional). What survives, and what a crashed session left, is written to a ledger; the next session shows a toast and `/orphans` lists and ends them.
 
 ## Install
@@ -49,7 +49,7 @@ claude plugin install orphans --marketplace PedroRozas/orphans
 ## Command
 
 ```
-/orphans              list the forgotten processes of this session and the leftovers of earlier ones
+/orphans              list this session's background processes and the leftovers of earlier ones
 /orphans kill         end all of them (SIGTERM, then SIGKILL after 2 seconds)
 /orphans kill <pid>   end one
 ```
