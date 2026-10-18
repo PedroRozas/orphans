@@ -168,7 +168,7 @@ test('con askSession apagado no pregunta pero sigue contando en el status', { op
 
   expect(ran.context).toBeUndefined()
   expect(session.appended().filter(row => row.door === 'note')).toHaveLength(0)
-  expect(statusLines.at(-1)).toContain('1 forgotten process')
+  expect(statusLines.at(-1)).toBe('1 background process · /orphans')
 })
 
 test('en un sistema no soportado avisa una vez y deja pasar cada Bash sin tocar ps', async ($, on) => {
